@@ -3,6 +3,7 @@ namespace App\Repository;
 
 use App\Models\Task;
 use App\Traits\AuthTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TaskRepository {
@@ -46,5 +47,36 @@ class TaskRepository {
         }
 
         return $task;
+    }
+
+    public function getTaskById($id)
+    {
+        return Task::findOrFail($id);
+    }
+
+//    public function updateTask($task)
+//    {
+//        $task = new Task();
+//        dd($this->getTaskById($task['id']));
+//        $endTime = (new \DateTime($task['end_time']))->format('Y-m-d h:i:s');
+//        $userId = Auth::id();
+//        $task = Task::updateOrCreate([
+//            'id' => $task['id'],
+//            'name' => $task['name'],
+//            'description' => $task['description'],
+//            'end_time' => $endTime,
+//            'user_id' => $userId
+//        ]);
+//
+//        if (!$task) {
+//            throw new \Exception('Error updating task');
+//        }
+//
+//        return $task;
+//    }
+
+    public function deleteTaskById($id)
+    {
+        $this->getTaskById($id)->delete();
     }
 }

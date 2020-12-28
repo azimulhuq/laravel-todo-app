@@ -23,8 +23,16 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('/tasks')->group(function () {
+    Route::get('/', [TaskController::class, 'list'])
+        ->name('tasks.all');
     Route::get('/create', [TaskController::class, 'create'])
         ->name('tasks.create');
     Route::post('/create', [TaskController::class, 'save'])
         ->name('task.save');
+    Route::get('/{id}/edit', [TaskController::class, 'edit'])
+        ->name('task.edit');
+    Route::post('/{id}', [TaskController::class, 'update'])
+        ->name('task.update');
+    Route::get('/{id}/delete', [TaskController::class, 'delete'])
+        ->name('task.delete');
 });
