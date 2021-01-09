@@ -28,7 +28,12 @@ class TaskRepository {
 
     public function getRecentTasksOfCurrentUser($noOfTasks = 5)
     {
-        return $this->getTasksOfCurrentUser()->take($noOfTasks);
+        $userId = Auth::id();
+        return Task::where('user_id', $userId)
+            ->orderBy('end_time', 'asc')
+            ->whereDate('end_time', '>', new \DateTime())
+            ->take($noOfTasks)
+            ->get();
     }
 
     public function createTask($task)
@@ -54,26 +59,20 @@ class TaskRepository {
         return Task::findOrFail($id);
     }
 
-//    public function updateTask($task)
-//    {
-//        $task = new Task();
-//        dd($this->getTaskById($task['id']));
-//        $endTime = (new \DateTime($task['end_time']))->format('Y-m-d h:i:s');
-//        $userId = Auth::id();
-//        $task = Task::updateOrCreate([
-//            'id' => $task['id'],
-//            'name' => $task['name'],
-//            'description' => $task['description'],
-//            'end_time' => $endTime,
-//            'user_id' => $userId
-//        ]);
-//
-//        if (!$task) {
-//            throw new \Exception('Error updating task');
-//        }
-//
-//        return $task;
-//    }
+    public function checkIfAuthorized($id)
+    {
+        $task = Task::where("id", $id)->first();
+        if ($task->user_id !== Auth::id()) {
+            throw new \Exception("You do not have access to modify this task");
+        }
+    }
+    public function updateTask($id, $task)
+    {
+        if($id === null || !isset($id)) {
+            throw new Exception('Task id is required');
+        }
+        return Task::where("id", $id)->update($task);
+    }
 
     public function deleteTaskById($id)
     {

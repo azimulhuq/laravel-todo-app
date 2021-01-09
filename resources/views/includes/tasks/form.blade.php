@@ -3,9 +3,7 @@
 @else
     <form method="POST" action="{{ route('task.save') }}">
 @endif
-
     @csrf
-
     <div class="form-group row">
         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -14,9 +12,9 @@
                    value="@if(isset($task)){{$task->name}}@else{{ old('name') }}@endif" autocomplete="name" autofocus>
 
             @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
             @enderror
         </div>
     </div>
@@ -27,14 +25,14 @@
         </label>
 
         <div class="col-md-6">
-            <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"
-                       autofocus>@if(isset($task)){{$task->description}}@else{{ old('description') }}@endif
-            </textarea>
+        <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description"
+                  autofocus>@if(isset($task)){{$task->description}}@else{{ old('description') }}@endif
+        </textarea>
 
             @error('description')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
             @enderror
         </div>
     </div>
@@ -49,9 +47,9 @@
                    value="@if(isset($task)){{date('Y-m-d\TH:i', strtotime($task->end_time))}}@else{{ old('end_time') }}@endif" autofocus>
 
             @error('end_time')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
             @enderror
         </div>
     </div>
@@ -61,9 +59,11 @@
             <button type="submit" class="btn btn-outline-primary">
                 @if(isset($task)){{__('Update Task') }}@else{{ __('Create Task') }}@endif
             </button>
-            <button type="@if(isset($task)){{__('button') }}@else{{__('reset')}}@endif" class="btn btn-warning btn-outline-dark">
+            <button type="@if(isset($task)){{__('button') }}formaction={{url()->previous()}} @else{{__('reset')}}@endif" class="btn btn-warning btn-outline-dark">
                 @if(isset($task)){{__('Cancel') }}@else{{ __('Reset') }}@endif
             </button>
         </div>
-    </div>
+        </div>
+
+</form>
 </form>

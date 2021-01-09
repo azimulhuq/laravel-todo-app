@@ -30,7 +30,7 @@ class TaskController extends Controller
     public function save(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|min:10|max:255',
+            'name' => 'required|min:8|max:255',
             'description' => 'required|string',
             'end_time' => 'required|after:today'
         ]);
@@ -45,31 +45,50 @@ class TaskController extends Controller
 
     public function edit($id)
     {
-
+        $this->taskRepository->checkIfAuthorized($id);
         return view('tasks.edit', [
             'task' => $this->taskRepository->getTaskById($id)
         ]);
     }
 
-    public function update(Request $request)
+    public function update($taskId, Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|min:10|max:255',
+            'name' => 'required|min:8|max:255',
             'description' => 'required|string',
             'end_time' => 'required|after:today'
         ]);
 
-        $task = $this->taskRepository->getTaskById($request->id);
-        $endTime = (new \DateTime($request->end_time))->format('Y-m-d h:i:s');
-        $userId = Auth::id();
-        $task->name = $request->name;
-        $task->description = $request->description;
-        $task->end_time = $endTime;
-        $task->user_id = $userId;
+        $this->taskRepository->checkIfAuthorized($taskId);
+        $task = $this->taskRepository->updateTask($taskId, $request->except('_token'));
 
-        $updateTask = $task->save();
+        if($task) {
+            return redirect(route('tasks.all'));
+        } else {
+            return view('404');
+        }
+    }
 
-        if($updateTask) {
+    public function complete($taskId)
+    {
+        $this->taskRepository->checkIfAuthorized($taskId);
+        $task = $this->taskRepository->updateTask($taskId, [
+            'status' => config('status.Completed')
+        ]);
+        if($task) {
+            return redirect(route('tasks.all'));
+        } else {
+            return view('404');
+        }
+    }
+
+    public function pending($taskId)
+    {
+        $this->taskRepository->checkIfAuthorized($taskId);
+        $task = $this->taskRepository->updateTask($taskId, [
+            'status' => config('status.Pending')
+        ]);
+        if($task) {
             return redirect(route('tasks.all'));
         } else {
             return view('404');
@@ -78,6 +97,7 @@ class TaskController extends Controller
 
     public function delete($id)
     {
+        $this->taskRepository->checkIfAuthorized($id);
         $this->taskRepository->deleteTaskById($id);
         return redirect()->back();
     }

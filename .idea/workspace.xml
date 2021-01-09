@@ -5,17 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa9a96a-e402-484c-989d-6413f355f828" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/tasks/form.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/includes/tasks/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/tasks/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/tasks/list.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/status.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ffa86641-e5b5-46e2-a944-a6bef97b6576.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ffa86641-e5b5-46e2-a944-a6bef97b6576.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repository/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repository/TaskRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tasks/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tasks/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/tasks/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/tasks/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/tasks/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/tasks/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/tasks/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tasks/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/touch.conf" beforeDir="false" afterPath="$PROJECT_DIR$/touch.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,9 +166,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpCreateRemoteSdkForm" value="WSL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/tasks" />
+    <property name="credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm" value="WSL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="inlay.hints.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -190,7 +198,39 @@
       <workItem from="1608544799516" duration="9307000" />
       <workItem from="1608608531223" duration="33038000" />
       <workItem from="1608728298967" duration="46000" />
-      <workItem from="1609061091449" duration="36356000" />
+      <workItem from="1609061091449" duration="36722000" />
+      <workItem from="1609161055064" duration="3228000" />
+      <workItem from="1609530559604" duration="3000" />
+      <workItem from="1609676698995" duration="16346000" />
+      <workItem from="1609733285797" duration="4947000" />
+      <workItem from="1609753815012" duration="5436000" />
+      <workItem from="1609764462680" duration="1269000" />
+      <workItem from="1609766656170" duration="77000" />
+      <workItem from="1609766761050" duration="14000" />
+      <workItem from="1609766853130" duration="130000" />
+      <workItem from="1609770612273" duration="643000" />
+      <workItem from="1609860440731" duration="471000" />
+      <workItem from="1609860932485" duration="466000" />
+      <workItem from="1609861420779" duration="322000" />
+      <workItem from="1609861762981" duration="98000" />
+      <workItem from="1609861880027" duration="12126000" />
+      <workItem from="1609931922840" duration="1334000" />
+      <workItem from="1609936495154" duration="805000" />
+      <workItem from="1609937329004" duration="99000" />
+      <workItem from="1609937464630" duration="154000" />
+      <workItem from="1609937766318" duration="192000" />
+      <workItem from="1609937979369" duration="1816000" />
+      <workItem from="1609939839798" duration="129000" />
+      <workItem from="1609939991589" duration="138000" />
+      <workItem from="1609941638266" duration="1519000" />
+      <workItem from="1609949004286" duration="62000" />
+      <workItem from="1609951340752" duration="755000" />
+      <workItem from="1609952119119" duration="71000" />
+      <workItem from="1609954912574" duration="64000" />
+      <workItem from="1610020307535" duration="2013000" />
+      <workItem from="1610108869245" duration="17729000" />
+      <workItem from="1610132242860" duration="360000" />
+      <workItem from="1610162966088" duration="14208000" />
     </task>
     <servers />
   </component>
@@ -208,5 +248,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

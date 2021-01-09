@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $tasks = $this->taskRepository->getRecentTasksOfCurrentUser();
+        $tasks = $this->taskRepository->getRecentTasksOfCurrentUser(6);
         return view('home', ['tasks' => $tasks]);
     }
 }

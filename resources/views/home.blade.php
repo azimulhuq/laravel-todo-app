@@ -10,7 +10,7 @@
                     <div>
                         <h2>Recent Tasks: </h2>
                     </div>
-                    @include('includes.tasks.list')
+                    @include('includes.tasks.list')<br>
                     <a href="{{route('tasks.all')}}">Show all tasks</a>
                 </div>
             </div>

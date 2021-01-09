@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between">
                         <p>{{ __('Dashboard') }}</p>
-                        <a href="{{route('tasks.create')}}"><strong>+</strong></a>
+                        <a href="{{route('task.create')}}"><strong>+</strong></a>
                     </div>
                     <div class="card-body">
                         @include('includes.tasks.list')
